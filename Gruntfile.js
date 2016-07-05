@@ -20,10 +20,18 @@ module.exports = function(grunt) {
                 tasks: ['concat'],
             },
         },
+        uglify: {
+            js : {
+                files: {
+                    'dist/js/script.min.js': ['dist/js/script.js']
+                }
+            }
+        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.registerTask('default', ['concat', 'sass', 'watch']);
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.registerTask('default', ['concat', 'sass', 'uglify', 'watch']);
 };
